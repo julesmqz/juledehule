@@ -4,7 +4,7 @@ $color12:#ffffff;
 $color13:#000000;
 
 body{
-    background-color: $color1;
+    background-color: $color13;
     font-family: 'Roboto', sans-serif;
 }
 .top-bar, .top-bar ul{
@@ -52,6 +52,11 @@ a{
 
 #container{
     margin:0 0 50px 0;
+    background-color: $color1;
+}
+
+.callout{
+    margin-bottom:0;
 }
 
 .footer-nav{
