@@ -102,8 +102,8 @@ a:hover {
 }
 
 /*
-   * Blog name and description
-   */
+ * Blog name and description
+ */
 .blog-title {
   margin-bottom: 0;
   font-size: 2rem;
@@ -140,8 +140,8 @@ a:hover {
 }
 
 /*
-   * Blog posts
-   */
+ * Blog posts
+ */
 .blog-post {
   margin-bottom: 4rem;
 }
@@ -171,8 +171,8 @@ a:hover {
 }
 
 /*
-   * Footer
-   */
+ * Footer
+ */
 .blog-footer {
   padding: 2.5rem 0;
   color: #999;
@@ -228,10 +228,23 @@ a:hover {
   display: flex;
   text-align: center;
   align-items: center;
+  position: relative;
+}
+
+.main-slider .slider-content::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  pointer-events: none;
+  opacity: 0.3;
+  z-index: 3;
 }
 
 .main-slider .slider-content .slider-inner {
   width: 100%;
+  z-index: 5;
 }
 
 .main-slider .slider-content .slider-inner h2 {
@@ -263,5 +276,298 @@ a:hover {
   width: 100%;
   text-transform: uppercase;
   text-decoration: none;
+}
+
+/* ----- 4.2 FOOTER ----- */
+.site-footer {
+  position: relative;
+  clear: both;
+  width: 100%;
+  font-size: 13px;
+}
+
+.site-footer .site-info {
+  padding: 18px 0;
+  text-align: center;
+  font-size: 12px;
+}
+
+.site-info i {
+  color: #de5239;
+  margin: 0 5px;
+}
+
+/* Footer Instagram */
+.footer-insta,
+.null-instagram-feed,
+.instagram-pics-wrap {
+  position: relative;
+}
+
+.footer-insta ul {
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  font-size: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.footer-insta ul li {
+  display: inline-block;
+  width: calc(100%/6);
+  padding: 0;
+  font-size: 1em;
+  flex-grow: 1;
+}
+
+.instagram-pics + p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -20px;
+  margin-left: -60px;
+  text-align: center;
+}
+
+.instagram-pics + p a {
+  display: inline-block;
+  padding: 6px 16px;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: inherit;
+  background: #fff;
+}
+
+.instagram-pics + p a .fa {
+  margin-right: 5px;
+}
+
+.instagram-pics + p a:hover {
+  background: #f7f7f7;
+}
+
+.instagram-pic {
+  max-width: 100%;
+}
+
+.entry-header {
+  padding: 120px 0;
+  text-align: center;
+  max-width: 600px;
+  margin: auto;
+  margin-top: 10vh;
+}
+
+.entry-header .entry-title {
+  font-weight: 400;
+  word-wrap: break-word;
+  font-size: 70px;
+}
+
+.entry-header .entry-meta {
+  margin: 6px 0;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.entry-header .entry-meta span {
+  margin-right: 16px;
+}
+
+.entry-header .entry-meta .prefix {
+  display: none;
+}
+
+.entry-header .entry-meta .cat-links a {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 2px;
+  letter-spacing: 1px;
+  line-height: 15px;
+}
+
+.entry-header .entry-meta .posted-on .updated {
+  display: none;
+}
+
+.entry-header .entry-meta .entry-share {
+  display: none;
+}
+
+.entry-header .entry-meta .entry-like a:hover .fa {
+  color: #de5239;
+}
+
+.entry .row {
+  max-width: 740px;
+  margin: auto;
+}
+
+.entry .featured-image {
+  min-height: 600px;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.entry article {
+  margin-top: 100px;
+}
+
+.entry article p {
+  margin: 0 0 1.4em 0;
+  line-height: 1.9;
+}
+
+.entry article h1, .entry article h2, .entry article h3, .entry article h4, .entry article h5 {
+  line-height: 1.4;
+  font-weight: 700;
+  margin: 1.6em 0 0.8em 0;
+}
+
+.entry article h2 {
+  margin: 1.6em 0 0.8em 0;
+}
+
+.entry article h3 {
+  font-size: 1.4em;
+}
+
+.entry article h4 {
+  font-size: 1.14em;
+}
+
+.entry article blockquote {
+  max-width: 20em;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 2.4em;
+  line-height: 1.3;
+  text-align: center;
+  font-weight: bolder;
+  padding: .4em 1.2em;
+}
+
+.entry article blockquote p {
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+.entry article blockquote cite {
+  display: block;
+  font-size: 10px;
+  padding-right: 1em;
+  margin-top: 1.2em;
+  font-style: normal;
+  font-weight: 400;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+
+.entry article .pull-right {
+  margin-left: 15px;
+}
+
+.entry .nav-single {
+  display: flex;
+  margin: 30px 0;
+}
+
+.entry .nav-single .nav-separator {
+  width: 35%;
+}
+
+.entry .nav-single .nav-previous, .entry .nav-single .nav-next {
+  display: flex;
+}
+
+.entry .nav-single .nav-previous .nav-image-link, .entry .nav-single .nav-next .nav-image-link {
+  max-width: 30%;
+}
+
+.entry .nav-single .nav-previous .nav-image-link img, .entry .nav-single .nav-next .nav-image-link img {
+  max-width: 100%;
+  border-radius: 50%;
+}
+
+.entry .nav-single .nav-previous h4, .entry .nav-single .nav-next h4 {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.entry .nav-single .nav-previous .nav-desc {
+  text-align: left;
+  padding-left: 20px;
+}
+
+.entry .nav-single .nav-next .nav-desc {
+  text-align: right;
+  padding-right: 20px;
+}
+
+.entry .related-posts {
+  margin: 10px 0 50px 0;
+  width: 100%;
+}
+
+.entry .related-posts .blocks {
+  display: flex;
+  width: 100%;
+}
+
+.entry .related-posts .blocks .block {
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: calc( 100% / 3);
+  flex-grow: 1;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  font-size: 20px;
+  position: relative;
+}
+
+.entry .related-posts .blocks .block .information {
+  width: 100%;
+  z-index: 5;
+}
+
+.entry .related-posts .blocks .block .entry-title {
+  font-size: inherit;
+  color: #FFF;
+  max-width: 85%;
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+.entry .related-posts .blocks .block .btn {
+  font-size: 16px;
+}
+
+.entry .related-posts .blocks .block:nth-child(2) {
+  margin: 0 10px;
+}
+
+.entry .related-posts .blocks .block header {
+  display: none;
+}
+
+.entry .related-posts .blocks .block::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  pointer-events: none;
+  opacity: 0.3;
+  z-index: 3;
 }
 /*# sourceMappingURL=blog.css.map */

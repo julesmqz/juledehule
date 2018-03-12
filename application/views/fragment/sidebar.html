@@ -1,0 +1,21 @@
+<aside class="col-md-4 blog-sidebar">
+    <div class="p-3 mb-3 bg-light rounded">
+        <h4 class="font-italic">Acerca de
+            <i class="fa fa-question-circle pull-right" aria-hidden="true"></i>
+        </h4>
+        <p class="mb-0">Jule de Hule es un espacio experimental y exploratorio. Mostrando opiniones más que hechos, dando prioridad a lo
+            subjetivo sobre lo objetivo.</p>
+    </div>
+
+    <div class="p-3">
+        <h4 class="font-italic">Tags populares</h4>
+        <ol class="jh-list list-unstyled mb-0">
+            {tags}
+            <li>
+                <a href="/search/{tag_url}">{tag}</a>
+            </li>
+            {/tags}
+        </ol>
+    </div>
+</aside>
+<!-- /.blog-sidebar -->
