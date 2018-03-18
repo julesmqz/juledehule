@@ -1,0 +1,57 @@
+<main role="main" class="container search-content">
+    <div class="row">
+        <div class="col-12 blog-main">
+            <div class="row">
+                <div class="main-title col-12">
+                    <h1>Resultados de la búsqueda</h1>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Búsqueda" aria-label="Búsqueda" aria-describedby="basic-addon2" value="{search_value}"
+                            data-search-text>
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="button" data-search-btn>Buscar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                {posts}
+                <div class="blog-post col-sm-12 col-md-6 col-lg-4">
+                    <h2 class="blog-post-title">{title}</h2>
+                    <p class="blog-post-meta">
+                        <span>
+                            <a href="/busqueda/tag/{friendly_url}" rel="category tag">{main_tag}</a>
+                        </span>
+                        <span>
+                            <a href="#N" rel="bookmark">
+                                <time class="entry-date published" datetime="{created_on_utc}">
+                                    {created_on} </time>
+                                <time class="updated" datetime="{updated_on_utc}">
+                                    {updated_on} </time>
+                            </a>
+                        </span>
+                    </p>
+                    <div class="blog-post-image" style="background-image: url('{main_img}');"></div>
+                    <div class="blog-post-body">
+                        {summary}
+                    </div>
+                    <div class="blog-read-more">
+                        <a href="/{pretty_url}.html" class="btn btn-outline-dark">Leer Más</a>
+                    </div>
+                </div>
+                <!-- /.blog-post -->
+                {/posts}
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    {pagination}
+                </div>
+            </div>
+
+        </div>
+        <!-- /.blog-main -->
+
+    </div>
+    <!-- /.row -->
+
+</main>
+<!-- /.container -->

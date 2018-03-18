@@ -20,6 +20,9 @@ class Home extends CI_Controller {
 	 */
 	public function index()
 	{
+		// in the future I may load the splash screen so I can redirect to many other applications
+		$this->load->helper('url');
+		redirect('/blog');
 		$this->load->view('splash');
 	}
 }

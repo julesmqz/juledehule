@@ -52,3 +52,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+
+// SEO
+$route['(:any).html'] = 'blog/post/$1';
+
+// Search SEO
+$route['busqueda'] = 'search';
+$route['busqueda/tag/(:any)'] = 'search/tag/$1';
+$route['busqueda/tag/(:any)/(:any)'] = 'search/tag/$1/$2';
+$route['busqueda'] = 'search';
+$route['busqueda/texto/(:any)'] = 'search/value/$1';
+$route['busqueda/texto/(:any)/(:any)'] = 'search/value/$1/$2';
