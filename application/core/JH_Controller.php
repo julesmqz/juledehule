@@ -76,7 +76,8 @@ class JH_Controller extends CI_Controller {
 
     protected function _loadCustomScripts()
     {
-        $scriptTag = '<script type="text/javascript" src="/assets/js/{script}.js"></script>';
+        $todayHash = md5(date('Ymd'));
+        $scriptTag = '<script type="text/javascript" src="http://assets.juledehule.com.mx/js/{script}.js?'.$todayHash.'"></script>';
         $scripts = '';
         foreach ($this->_customScripts as $script) {
             $scripts .= str_replace('{script}', $script, $scriptTag);
