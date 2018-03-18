@@ -134,7 +134,7 @@ class JH_Controller extends CI_Controller {
 			'first_classes' => $currPage == 1 ? 'disabled' : '',
 			'last_url' => $urlTemplate.'/'.$totalPages,
 			'last_text' => 'Última página',
-			'last_classes' => $currPage == $totalPages ?	'disabled' : '' 
+			'last_classes' => ($currPage + 1) >= $totalPages ?	'disabled' : '' 
 		);
     }
 }
