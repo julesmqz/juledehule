@@ -21,7 +21,7 @@ class JH_Controller extends CI_Controller {
 	protected function _loadView($omitSidebar = false, $omitSlider = false)
     {
         $data['main_title'] = $this->_siteTitle;
-        $data['main_description'] = 'This is a personal blog';
+        $data['main_description'] = 'Jule de Hule es un espacio de exploración y experimentación donde su autor puede expresar sus opiniones sin miedo.';
         $data['content'] = $this->_loadContent($omitSidebar);
         $data['main_slider'] = $this->_loadMainSlider($omitSlider);
         $data['instagram_footer'] = $this->_loadInstagramFooter();

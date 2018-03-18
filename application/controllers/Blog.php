@@ -60,6 +60,7 @@ class Blog extends JH_Controller
         if (!isset($this->_contentData['entry'][0]['title'])) {
             show_404();
         } else {
+            $this->_siteTitle = 'Entrada | '.$post['title'];
             $this->_loadView(true, true);
         }
 
