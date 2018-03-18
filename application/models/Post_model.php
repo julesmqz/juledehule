@@ -2,7 +2,7 @@
 defined("BASEPATH") or exit("No direct script access allowed");
 class Post_model extends CI_Model
 {
-    protected $_itemsPerPage = 5;
+    protected $_itemsPerPage = 6;
 
     public function getMainSlider()
     {

@@ -23,7 +23,7 @@ class Blog extends JH_Controller
     public function index($page = 1)
     {
         $this->_customScripts[] = 'mainSlider';
-        $this->_preparePaginationData($page, '/blog/index', $this->mpost->getTotalPages(), false);
+        $this->_preparePaginationData($page, '/blog/index', $this->mpost->getTotalPages(), true);
         $posts = $this->mpost->getPage($page);
         foreach ($posts as &$post) {
             $co = $post['created_on'];
