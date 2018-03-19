@@ -51,6 +51,7 @@ class Blog extends JH_Controller
         $post['created_on_utc'] = date('d-m-y H:i:s', strtotime($co));
         $post['updated_on'] = date('d/M/Y', strtotime($uo));
         $post['updated_on_utc'] = date('d-m-y H:i:s', strtotime($uo));
+        $post['share_desc'] = str_replace('-','+',$post['pretty_url']);
 
         $post['prevPost'][] = $prevPost;
         $post['nextPost'][] = $nextPost;

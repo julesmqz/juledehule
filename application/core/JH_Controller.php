@@ -9,6 +9,7 @@ class JH_Controller extends CI_Controller {
     protected $_customScripts = array();
     protected $_dataPagination = array();
     protected $_maxPaginationShow = 5;
+    protected $_versionScripts = '';
 
     public function __construct()
     {
@@ -16,6 +17,7 @@ class JH_Controller extends CI_Controller {
         $this->load->model('tag_model', 'mtags');
         $this->load->model('post_model', 'mpost');
         $this->load->model('social_model', 'msocial');
+        $this->_versionScripts = md5(date('Ymd').'1');
     }
 
 	protected function _loadView($omitSidebar = false, $omitSlider = false)
@@ -26,6 +28,8 @@ class JH_Controller extends CI_Controller {
         $data['main_slider'] = $this->_loadMainSlider($omitSlider);
         $data['instagram_footer'] = $this->_loadInstagramFooter();
         $data['custom_scripts'] = $this->_loadCustomScripts();
+        $data['hash'] = $this->_versionScripts;
+        $data['assets_url'] = ENVIRONMENT == 'production' ? 'http://assets.juledehule.com.mx/' : '/assets/';
 
         $this->parser->parse('template/main.html', $data);
 

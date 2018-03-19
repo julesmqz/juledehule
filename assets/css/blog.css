@@ -397,6 +397,25 @@ a:hover {
   text-transform: uppercase;
 }
 
+.entry-header .entry-meta .entry-share .btn {
+  font-size: 12px;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  top: -1px;
+}
+
+.entry-header .entry-meta .entry-share .entry-share-wrap a {
+  display: inline-block;
+  width: 100%;
+  margin: 5px;
+  font-size: 10px;
+}
+
+.entry-header .entry-meta .entry-share .entry-share-wrap a .fa {
+  margin-right: 10px;
+}
+
 .entry-header .entry-meta span {
   margin-right: 16px;
 }
@@ -417,7 +436,7 @@ a:hover {
   display: none;
 }
 
-.entry-header .entry-meta .entry-share, .entry-header .entry-meta .entry-like, .entry-header .entry-meta .comment-link {
+.entry-header .entry-meta .entry-like, .entry-header .entry-meta .comment-link {
   display: none;
 }
 

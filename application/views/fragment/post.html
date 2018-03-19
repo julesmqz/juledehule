@@ -1,60 +1,71 @@
 {entry}
 <div class="entry-header">
-        <h1 class="entry-title">{title}</h1>
-        <div class="entry-meta below-title">
-            <span class="cat-links">
-                <span class="prefix">
-                    en </span>
-                <a href="/busqueda/tag/{friendly_url}" rel="category tag">{main_tag}</a>
-            </span>
-            <span class="posted-on">
-                <span class="prefix">
-                    on </span>
-                <a href="#N" rel="bookmark">
-                    <time class="entry-date published" datetime="{created_on_utc}">
-                            {created_on} </time>
-                    <time class="updated" datetime="{updated_on_utc}">
-                            {updated_on} </time>
+    <h1 class="entry-title">{title}</h1>
+    <div class="entry-meta below-title">
+        <span class="cat-links">
+            <span class="prefix">
+                en </span>
+            <a href="/busqueda/tag/{friendly_url}" rel="category tag">{main_tag}</a>
+        </span>
+        <span class="posted-on">
+            <span class="prefix">
+                on </span>
+            <a href="#N" rel="bookmark">
+                <time class="entry-date published" datetime="{created_on_utc}">
+                    {created_on} </time>
+                <time class="updated" datetime="{updated_on_utc}">
+                    {updated_on} </time>
+            </a>
+        </span>
+        <span class="comment-link">
+            <span class="prefix">
+                with </span>
+            <a href="#comments">{num_comments} Comentarios</a>
+        </span>
+        <span class="entry-share dropdown show">
+            <a href="#N" class="entry-share-text btn dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+                Share </a>
+
+            <div class="entry-share-wrap dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="share-facebook" rel="nofollow" target="_blank" href="http://www.facebook.com/sharer.php?u=http://www.juledehule.com.mx/{pretty_url}.html&amp;t={share_desc}"
+                    title="Share this post on Facebook">
+                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                    Facebook
                 </a>
-            </span>
-            <span class="comment-link">
-                <span class="prefix">
-                    with </span>
-                <a href="#comments">{num_comments} Comentarios</a>
-            </span>
-            <span class="entry-share">
-                <span class="entry-share-text">
-                    Share </span>
 
-                <span class="entry-share-wrap">
-                    <span class="entry-share-inner-wrap">
-                        <a class="share-facebook" rel="nofollow" target="_blank" href="http://www.facebook.com/sharer.php?u=http://themes.pixelwars.org/theblogger/john/enjoy-little-things/&amp;t=Enjoy+Little+Things"
-                            title="Share this post on Facebook">Facebook</a>
-
-                        <a class="share-twitter" rel="nofollow" target="_blank" href="http://twitter.com/home?status=Currently%20reading:%20'Enjoy+Little+Things'%20http://themes.pixelwars.org/theblogger/john/enjoy-little-things/"
-                            title="Share this post with your followers">Twitter</a>
-
-                        <a class="share-pinterest" rel="nofollow" target="_blank" href="https://pinterest.com/pin/create/button/?url=http://themes.pixelwars.org/theblogger/john/enjoy-little-things/&amp;media=http://themes.pixelwars.org/theblogger/john/wp-content/uploads/sites/14/2016/08/06-1060x735.jpg&amp;description=Enjoy+Little+Things">Pinterest</a>
-
-                        <a class="share-gplus" rel="nofollow" target="_blank" href="https://plus.google.com/share?url=http://themes.pixelwars.org/theblogger/john/enjoy-little-things/"
-                            title="Share this post on Google+">Google+</a>
-
-                        <a class="share-mail" rel="nofollow" target="_blank" href="mailto:?subject=I+wanted+you+to+see+this+post&amp;body=Check+out+this+post%20:%20Enjoy+Little+Things%20-%20http://themes.pixelwars.org/theblogger/john/enjoy-little-things/"
-                            title="Email this post to a friend">Email</a>
-                    </span>
-                    <!-- .entry-share-inner-wrap -->
-                </span>
-                <!-- .entry-share-wrap -->
-            </span>
-            <!-- .entry-share -->
-            <span class="entry-like">
-                <a href="#" class="dot-irecommendthis" id="dot-irecommendthis-43" title="Recommend this">
-                    <i class="fa fa-heart-o" aria-hidden="true"></i>
-                    <span class="dot-irecommendthis-count">{num_likes}</span>
+                <a class="share-twitter" rel="nofollow" target="_blank" href="http://twitter.com/home?status=Échale%20un%20ojo%20a:%20'http://www.juledehule.com.mx/{pretty_url}.html"
+                    title="Comparte este post con tus seguidores">
+                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                    Twitter
                 </a>
-            </span>
-        </div>
+
+                <a class="share-pinterest" rel="nofollow" target="_blank" href="https://pinterest.com/pin/create/button/?url=http://www.juledehule.com.mx/{pretty_url}.html&amp;media={main_img}&amp;description={share_desc}">
+                    <i class="fa fa-pinterest-p" aria-hidden="true"></i>
+                    Pinterest</a>
+
+                <a class="share-gplus" rel="nofollow" target="_blank" href="https://plus.google.com/share?url=http://www.juledehule.com.mx/{pretty_url}.html/"
+                    title="Comparte en Google+">
+                    <i class="fa fa-google-plus" aria-hidden="true"></i>
+                    Google+
+                </a>
+
+                <a class="share-mail" rel="nofollow" target="_blank" href="mailto:?subject=Échale+un+ojo+a+este+post&amp;body=Te+comparto+este+post%20:%20{share_desc}%20-%20http://www.juledehule.com.mx/{pretty_url}.html/"
+                    title="Enviar email a un amigo">
+                    <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                    Email</a>
+            </div>
+            <!-- .entry-share-wrap -->
+        </span>
+        <!-- .entry-share -->
+        <span class="entry-like">
+            <a href="#" class="dot-irecommendthis" id="dot-irecommendthis-43" title="Recommend this">
+                <i class="fa fa-heart-o" aria-hidden="true"></i>
+                <span class="dot-irecommendthis-count">{num_likes}</span>
+            </a>
+        </span>
     </div>
+</div>
 </div>
 <main role="main" class="container entry">
     <div class="row">
