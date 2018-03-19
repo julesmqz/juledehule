@@ -34,6 +34,13 @@ class Blog extends JH_Controller
             $post['updated_on_utc'] = date('d-m-Y H:i:s', strtotime($uo));
         }
         $this->_contentData = array('posts' => $posts);
+        $this->_shareMetadata = array(
+            'url' => 'http://www.juledehule.com.mx/blog',
+            'type' => 'blog',
+            'description' => 'Poemas, entradas y pensamientos importantes para el autor. Todo subjetivo ¿Encontró lo que buscaba, jóven?',
+            'image' => 'http://assets.juledehule.com.mx/img/logo_vertical.png',
+            'title' => 'Blog personal. Un espacio para la experimentación y exploración',
+        );
 
         $this->_loadView();
     }
@@ -52,15 +59,23 @@ class Blog extends JH_Controller
         $post['updated_on'] = date('d/M/Y', strtotime($uo));
         $post['updated_on_utc'] = date('d-m-y H:i:s', strtotime($uo));
         $post['share_desc'] = str_replace('-','+',$post['pretty_url']);
+        $post['share_metadata'] = str_replace('-','+',$post['pretty_url']);
 
         $post['prevPost'][] = $prevPost;
         $post['nextPost'][] = $nextPost;
         $this->_contentData['entry'][] = $post;
-        //$this->_contentData['entry']['nextPost'][] = $nextPost;
+
 
         if (!isset($this->_contentData['entry'][0]['title'])) {
             show_404();
         } else {
+            $this->_shareMetadata = array(
+                'url' => 'http://www.juledehule.com.mx/'.$post['pretty_url'].'.html',
+                'type' => 'article',
+                'description' => strip_tags($post['summary']),
+                'image' => $post['main_img'],
+                'title' => $post['title'],
+            );
             $this->_siteTitle = 'Entrada | '.$post['title'];
             $this->_loadView(true, true);
         }

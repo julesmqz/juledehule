@@ -42,6 +42,13 @@ class Search extends JH_Controller
 			'posts' => $posts,
 			'search_value' => $string
 		);
+		$this->_shareMetadata = array(
+			'url' => 'http://www.juledehule.com.mx/busqueda/texto/'.$string,
+			'type' => 'search',
+			'description' => 'Resultados de la búsqueda para '.$string,
+			'image' => 'http://assets.juledehule.com.mx/img/logo_vertical.png',
+			'title' => 'Resultados de la búsqueda para '.$string,
+		);
 		
 		$this->_loadView(false, true);
 	}
@@ -63,6 +70,14 @@ class Search extends JH_Controller
 		$this->_contentData = array(
 			'posts' => $posts,
 			'search_value' => 'tag:'.$tag
+		);
+
+		$this->_shareMetadata = array(
+			'url' => 'http://www.juledehule.com.mx/busqueda/tag/'.$tag,
+			'type' => 'search',
+			'description' => 'Resultados de la búsqueda por tag '.$tag,
+			'image' => 'http://assets.juledehule.com.mx/img/logo_vertical.png',
+			'title' => 'Resultados de la búsqueda por tag '.$tag,
 		);
 
         $this->_loadView(false, true);

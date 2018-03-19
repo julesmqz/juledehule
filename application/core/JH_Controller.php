@@ -10,6 +10,7 @@ class JH_Controller extends CI_Controller {
     protected $_dataPagination = array();
     protected $_maxPaginationShow = 5;
     protected $_versionScripts = '';
+    protected $_shareMetadata = [];
 
     public function __construct()
     {
@@ -30,6 +31,7 @@ class JH_Controller extends CI_Controller {
         $data['custom_scripts'] = $this->_loadCustomScripts();
         $data['hash'] = $this->_versionScripts;
         $data['assets_url'] = ENVIRONMENT == 'production' ? 'http://assets.juledehule.com.mx' : '/assets';
+        $data['share_metadata'] = $this->_shareMetadata;
 
         $this->parser->parse('template/main.html', $data);
 
