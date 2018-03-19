@@ -29,7 +29,7 @@ class JH_Controller extends CI_Controller {
         $data['instagram_footer'] = $this->_loadInstagramFooter();
         $data['custom_scripts'] = $this->_loadCustomScripts();
         $data['hash'] = $this->_versionScripts;
-        $data['assets_url'] = ENVIRONMENT == 'production' ? 'http://assets.juledehule.com.mx/' : '/assets/';
+        $data['assets_url'] = ENVIRONMENT == 'production' ? 'http://assets.juledehule.com.mx' : '/assets';
 
         $this->parser->parse('template/main.html', $data);
 
