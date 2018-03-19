@@ -42,7 +42,7 @@ class Search extends JH_Controller
 			'posts' => $posts,
 			'search_value' => $string
 		);
-		$this->_shareMetadata = array(
+		$this->_shareMetadata[] = array(
 			'url' => 'http://www.juledehule.com.mx/busqueda/texto/'.$string,
 			'type' => 'search',
 			'description' => 'Resultados de la búsqueda para '.$string,
@@ -72,7 +72,7 @@ class Search extends JH_Controller
 			'search_value' => 'tag:'.$tag
 		);
 
-		$this->_shareMetadata = array(
+		$this->_shareMetadata[] = array(
 			'url' => 'http://www.juledehule.com.mx/busqueda/tag/'.$tag,
 			'type' => 'search',
 			'description' => 'Resultados de la búsqueda por tag '.$tag,

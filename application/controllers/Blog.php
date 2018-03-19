@@ -34,7 +34,7 @@ class Blog extends JH_Controller
             $post['updated_on_utc'] = date('d-m-Y H:i:s', strtotime($uo));
         }
         $this->_contentData = array('posts' => $posts);
-        $this->_shareMetadata = array(
+        $this->_shareMetadata[] = array(
             'url' => 'http://www.juledehule.com.mx/blog',
             'type' => 'blog',
             'description' => 'Poemas, entradas y pensamientos importantes para el autor. Todo subjetivo ¿Encontró lo que buscaba, jóven?',
@@ -69,7 +69,7 @@ class Blog extends JH_Controller
         if (!isset($this->_contentData['entry'][0]['title'])) {
             show_404();
         } else {
-            $this->_shareMetadata = array(
+            $this->_shareMetadata[] = array(
                 'url' => 'http://www.juledehule.com.mx/'.$post['pretty_url'].'.html',
                 'type' => 'article',
                 'description' => strip_tags($post['summary']),
