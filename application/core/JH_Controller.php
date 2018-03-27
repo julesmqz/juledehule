@@ -18,7 +18,7 @@ class JH_Controller extends CI_Controller {
         $this->load->model('tag_model', 'mtags');
         $this->load->model('post_model', 'mpost');
         $this->load->model('social_model', 'msocial');
-        $this->_versionScripts = md5(date('Ymd').'2');
+        $this->_versionScripts = md5(date('Ymd').'3');
     }
 
 	protected function _loadView($omitSidebar = false, $omitSlider = false)

@@ -375,6 +375,7 @@ a:hover {
   display: inline-block;
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center center;
 }
 
 .entry-header {
