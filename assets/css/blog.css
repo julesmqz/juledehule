@@ -245,6 +245,7 @@ a:hover {
   height: 80vh;
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center center;
   color: #fff;
   display: flex;
   text-align: center;
