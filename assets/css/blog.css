@@ -407,6 +407,11 @@ a:hover {
   top: -1px;
 }
 
+.entry-header .entry-meta .entry-share .entry-share-wrap {
+  min-width: 100px;
+  padding: 10px;
+}
+
 .entry-header .entry-meta .entry-share .entry-share-wrap a {
   display: inline-block;
   width: 100%;

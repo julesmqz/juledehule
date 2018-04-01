@@ -46,18 +46,21 @@ class Insta_crawler extends CI_Controller
         $status = curl_getinfo($s, CURLINFO_HTTP_CODE);
         curl_close($s);
 
+        //echo $url;
         //print_r(json_decode($res));
 
         $res = json_decode($res);
 
         $pics = array();
         foreach( $res->data as $d){
-            $pics[] = array(
-                'id' => $d->id,
-                'uploaded_on' => $d->created_time,
-                'image' => $d->images->low_resolution->url,
-                'link' => $d->link
-            );
+            if( $d->type == 'image'){
+                $pics[] = array(
+                    'id' => $d->id,
+                    'uploaded_on' => $d->created_time,
+                    'image' => $d->images->low_resolution->url,
+                    'link' => $d->link
+                );
+            }
         }
 
         $this->msocial->insertInstaPics($pics);
