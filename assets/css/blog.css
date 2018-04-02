@@ -314,7 +314,7 @@ a:hover {
   font-size: 12px;
 }
 
-.site-info i {
+.site-info .fa-heart {
   color: #de5239;
   margin: 0 5px;
 }
