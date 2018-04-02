@@ -461,7 +461,10 @@ a {
         }
 
         .entry-like {
-            a:hover .fa {
+            a .fa-heart {
+                margin: 0 3px;
+            }
+            a:hover .fa-heart {
                 color: $heart-red;
             }
         }

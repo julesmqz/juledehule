@@ -447,7 +447,11 @@ a:hover {
   display: none;
 }
 
-.entry-header .entry-meta .entry-like a:hover .fa {
+.entry-header .entry-meta .entry-like a .fa-heart {
+  margin: 0 3px;
+}
+
+.entry-header .entry-meta .entry-like a:hover .fa-heart {
   color: #de5239;
 }
 
