@@ -375,7 +375,7 @@ a {
     color: inherit;
     background: #fff;
 
-    .fa {
+    .fa, .fab, .far {
         margin-right: 5px;
     }
 }
@@ -427,7 +427,7 @@ a {
                     width:100%;
                     margin:5px;
                     font-size:10px;
-                    .fa{
+                    .fa,.far,.fab{
                         margin-right:10px;
                     }
                 }

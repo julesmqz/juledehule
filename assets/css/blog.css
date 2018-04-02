@@ -362,7 +362,7 @@ a:hover {
   background: #fff;
 }
 
-.instagram-pics + p a .fa {
+.instagram-pics + p a .fa, .instagram-pics + p a .fab, .instagram-pics + p a .far {
   margin-right: 5px;
 }
 
@@ -419,7 +419,7 @@ a:hover {
   font-size: 10px;
 }
 
-.entry-header .entry-meta .entry-share .entry-share-wrap a .fa {
+.entry-header .entry-meta .entry-share .entry-share-wrap a .fa, .entry-header .entry-meta .entry-share .entry-share-wrap a .far, .entry-header .entry-meta .entry-share .entry-share-wrap a .fab {
   margin-right: 10px;
 }
 
