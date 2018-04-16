@@ -64,6 +64,9 @@ class Insta_crawler extends CI_Controller
         }
 
         $this->msocial->insertInstaPics($pics);
+
+        echo json_encode(array('status' => 200, 'url' => $url,'msg' => 'Saved latest instagram pics'));
+
     }
 
     protected function _writeConfig()

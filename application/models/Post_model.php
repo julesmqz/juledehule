@@ -112,6 +112,17 @@ class Post_model extends CI_Model
         return ceil($this->db->count_all_results()/$this->_itemsPerPage);
     }
 
+    public function getTotal(){
+        $this->load->database('default');
+
+        $this->db->from('post');
+        $this->db->join('image', 'post.id = image.post_id AND image.main');
+        $this->db->join('post_has_tag as pht', 'post.id = pht.post_id AND pht.main');
+        $this->db->join('tag', 'pht.tag_id = tag.id');
+
+        return $this->db->count_all_results();
+    }
+
     public function searchByTag($tag, $nrPage)
     {
         return $this->getPage($nrPage, ['tag.friendly_url' => $tag]);
