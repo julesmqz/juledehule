@@ -18,7 +18,7 @@ class JH_Controller extends CI_Controller {
         $this->load->model('tag_model', 'mtags');
         $this->load->model('post_model', 'mpost');
         $this->load->model('social_model', 'msocial');
-        $this->_versionScripts = md5(date('Ymd').'3');
+        $this->_versionScripts = md5(date('Ymd').'1');
     }
 
 	protected function _loadView($omitSidebar = false, $omitSlider = false)
@@ -83,7 +83,8 @@ class JH_Controller extends CI_Controller {
     protected function _loadCustomScripts()
     {
         $todayHash = md5(date('Ymd'));
-        $scriptTag = '<script type="text/javascript" src="http://assets.juledehule.com.mx/js/{script}.min.js?'.$todayHash.'"></script>';
+        $assetsUrl = ENVIRONMENT == 'production' ? 'http://assets.juledehule.com.mx' : '/assets';
+        $scriptTag = '<script type="text/javascript" src="'.$assetsUrl.'/js/{script}.min.js?'.$todayHash.'"></script>';
         $scripts = '';
         foreach ($this->_customScripts as $script) {
             $scripts .= str_replace('{script}', $script, $scriptTag);
