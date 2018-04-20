@@ -178,7 +178,7 @@ class Post_model extends CI_Model
         $this->db->from('post');
         $this->db->join('image', 'post.id = image.post_id AND image.main');
         $this->db->where('created_on ' . $direction, $date);
-        $this->db->order_by('post.created_on', 'DESC');
+        $this->db->order_by('post.created_on', $direction == '>' ? 'ASC' : 'DESC');
         $this->db->limit(1, 0);
 
         $q = $this->db->get();
