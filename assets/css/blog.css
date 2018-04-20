@@ -551,6 +551,7 @@ a:hover {
   display: block;
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
 }
 
 .entry .nav-single .nav-previous h4, .entry .nav-single .nav-next h4 {
