@@ -60,4 +60,16 @@ class Tag_model extends CI_Model
 
         return $r;
     }
+
+    public function addToPost($postId,$tags){
+        $cont = 0;
+        $data = array_map(function($tag) use ($postId,&$cont){
+            $r = array('post_id' => $postId,'tag_id' => $tag, 'main' => $cont == 0);
+            $cont++;
+            return $r;
+        },$tags);
+
+        $this->load->database('default');
+        return $this->db->insert_batch('post_has_tag',$data);
+    }
 }

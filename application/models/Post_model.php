@@ -191,4 +191,14 @@ class Post_model extends CI_Model
 
         return ['otitle' => null,'opretty_url' => '#N','omain_img' => null,'oclass' => 'd-none'];
     }
+
+    public function add($post){
+        $data = $post;
+        $data['updated_on'] = date('Y-m-d H:i:s');
+        $this->load->database('default');
+
+        $this->db->set($data);
+        $this->db->insert('post');
+        return $this->db->insert_id();
+    }
 }

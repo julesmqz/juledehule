@@ -38,19 +38,50 @@ class Rest extends CI_Controller
         $this->_response['status'] = 200;
         $this->_response['msg'] = 'Here have some data';
         $this->_response['data'] = array(
-            'tags' => $this->mtags->getTotal(), 
-            'posts' => $this->mpost->getTotal(), 
-            'slider' => 9, 
-            'footer' => 1
+            'tags' => $this->mtags->getTotal(),
+            'posts' => $this->mpost->getTotal(),
+            'slider' => 9,
+            'footer' => 1,
         );
 
         echo json_encode($this->_response);
     }
 
-    public function getTags(){
+    public function getTags()
+    {
         $this->_response['status'] = 200;
         $this->_response['msg'] = 'Here have some data';
         $this->_response['data'] = $this->mtags->getAll();
+
+        echo json_encode($this->_response);
+    }
+
+    public function savePost()
+    {
+        $data = $this->input->post(null, true);
+        if (!is_null($data) && !empty($data)) {
+            $post = $data;
+            unset($post['tags']);
+            $postId = $this->mpost->add($post);
+            if ($postId) {
+                // Save tags
+                $tags = $data['tags'];
+                $r = $this->mtags->addToPost($postId, $tags);
+                if ($r) {
+                    $this->_response['status'] = 200;
+                    $this->_response['msg'] = 'Saved';
+                } else {
+                    $this->_response['status'] = 200;
+                    $this->_response['msg'] = 'Could not save tags';
+                }
+            } else {
+                $this->_response['status'] = 200;
+                $this->_response['msg'] = 'Could not save post';
+            }
+        } else {
+            $this->_response['status'] = 401;
+            $this->_response['msg'] = 'Cannot access without posting something';
+        }
 
         echo json_encode($this->_response);
     }
