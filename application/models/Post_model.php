@@ -6,7 +6,7 @@ class Post_model extends CI_Model
 
     public function getMainSlider()
     {
-        $this->load->database(ENVIRONMENT);
+        
 
         $this->db->select('post.pretty_url as link,post.title,image.path as image');
         $this->db->from('slider');
@@ -33,7 +33,7 @@ class Post_model extends CI_Model
 
     public function getPage($nrPage, $search = [], $useLike = false, $useOr = false)
     {
-        $this->load->database(ENVIRONMENT);
+        
 
         $this->db->select('post.*,tag.friendly_url,tag.name as main_tag,image.path as main_img');
         $this->db->from('post');
@@ -77,7 +77,7 @@ class Post_model extends CI_Model
 
     public function getTotalPages($search = [], $useLike = false, $useOr = false)
     {
-        $this->load->database(ENVIRONMENT);
+        
 
         $this->db->from('post');
         $this->db->join('image', 'post.id = image.post_id AND image.main');
@@ -113,7 +113,7 @@ class Post_model extends CI_Model
     }
 
     public function getTotal(){
-        $this->load->database(ENVIRONMENT);
+        
 
         $this->db->from('post');
         $this->db->join('image', 'post.id = image.post_id AND image.main');
@@ -150,7 +150,7 @@ class Post_model extends CI_Model
 
     public function getByUrl($url)
     {
-        $this->load->database(ENVIRONMENT);
+        
 
         $this->db->select('post.*,tag.friendly_url,tag.name as main_tag,image.path as main_img');
         $this->db->from('post');
@@ -172,7 +172,7 @@ class Post_model extends CI_Model
 
     public function getPrevNextPost($date, $direction = '>')
     {
-        $this->load->database(ENVIRONMENT);
+        
 
         $this->db->select('"" as oclass,post.title as otitle,post.pretty_url as opretty_url,image.path as omain_img');
         $this->db->from('post');
@@ -195,7 +195,7 @@ class Post_model extends CI_Model
     public function add($post){
         $data = $post;
         $data['updated_on'] = date('Y-m-d H:i:s');
-        $this->load->database(ENVIRONMENT);
+        
 
         $this->db->set($data);
         $this->db->insert('post');
