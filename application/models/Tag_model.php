@@ -5,7 +5,7 @@ class Tag_model extends CI_Model
 
     public function getPopular()
     {
-        $this->load->database('default');
+        $this->load->database(ENVIRONMENT);
 
         $this->db->select('tag.*,count(pht.post_id) as total');
         $this->db->join('post_has_tag pht', 'ON tag.id = pht.tag_id');
@@ -24,7 +24,7 @@ class Tag_model extends CI_Model
             'name' => $tag,
             'friendly_url' => $this->_cleanTag($tag),
         );
-        $this->load->database('default');
+        $this->load->database(ENVIRONMENT);
 
         $this->db->set($data);
         return $this->db->insert('tag');
@@ -32,7 +32,7 @@ class Tag_model extends CI_Model
 
     public function getTotal()
     {
-        $this->load->database('default');
+        $this->load->database(ENVIRONMENT);
 
         return $this->db->count_all('tag');
     }
@@ -52,7 +52,7 @@ class Tag_model extends CI_Model
     }
 
     public function getAll(){
-        $this->load->database('default');
+        $this->load->database(ENVIRONMENT);
 
         $q = $this->db->get('tag');
 
@@ -69,7 +69,7 @@ class Tag_model extends CI_Model
             return $r;
         },$tags);
 
-        $this->load->database('default');
+        $this->load->database(ENVIRONMENT);
         return $this->db->insert_batch('post_has_tag',$data);
     }
 }
