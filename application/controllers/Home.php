@@ -22,7 +22,7 @@ class Home extends CI_Controller {
 	{
 		// in the future I may load the splash screen so I can redirect to many other applications
 		$this->load->helper('url');
-		redirect('/blog');
+		redirect('/cuentos');
 		$this->load->view('splash');
 	}
 }
