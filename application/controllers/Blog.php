@@ -22,6 +22,7 @@ class Blog extends JH_Controller
      */
     public function index($page = 1)
     {
+        $this->_siteTitle = 'Cuentos';
         $this->_customScripts[] = 'mainSlider';
         $this->_preparePaginationData($page, '/blog/index', $this->mpost->getTotalPages(), true);
         $posts = $this->mpost->getPage($page);
