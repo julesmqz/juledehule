@@ -60,9 +60,11 @@ $route['(:any).html'] = 'blog/post/$1';
 $route['busqueda'] = 'search';
 $route['busqueda/tag/(:any)'] = 'search/tag/$1';
 $route['busqueda/tag/(:any)/(:any)'] = 'search/tag/$1/$2';
+$route['busqueda/categoria/(:any)'] = 'search/categoria/$1';
+$route['busqueda/categoria/(:any)/(:any)'] = 'search/categoria/$1/$2';
 $route['busqueda'] = 'search';
 $route['busqueda/texto/(:any)'] = 'search/value/$1';
 $route['busqueda/texto/(:any)/(:any)'] = 'search/value/$1/$2';
 
 // SEO FOR blog to cuentos
-$route['cuentos'] = 'blog';
+$route['inicio'] = 'blog';

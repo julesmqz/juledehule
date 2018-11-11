@@ -22,9 +22,9 @@ class Blog extends JH_Controller
      */
     public function index($page = 1)
     {
-        $this->_siteTitle = 'Cuentos';
+        $this->_siteTitle = 'Inicio';
         $this->_customScripts[] = 'mainSlider';
-        $this->_preparePaginationData($page, '/blog/index', $this->mpost->getTotalPages(), true);
+        $this->_preparePaginationData($page, '/inicio/index', $this->mpost->getTotalPages(), true);
         $posts = $this->mpost->getPage($page);
         foreach ($posts as &$post) {
             $co = $post['created_on'];
@@ -36,11 +36,11 @@ class Blog extends JH_Controller
         }
         $this->_contentData = array('posts' => $posts);
         $this->_shareMetadata[] = array(
-            'url' => 'http://www.juledehule.com.mx/blog',
+            'url' => 'http://www.juledehule.com.mx/inicio',
             'type' => 'blog',
             'description' => 'Poemas, entradas y pensamientos importantes para el autor. Todo subjetivo ¿Encontró lo que buscaba, jóven?',
             'image' => 'http://assets.juledehule.com.mx/img/logo_vertical.png',
-            'title' => 'Blog personal. Un espacio para la experimentación y exploración',
+            'title' => 'Inicio. Un espacio para la experimentación y exploración',
         );
 
         $this->_loadView();

@@ -73,12 +73,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $active_group = !is_null(ENVIRONMENT) ? ENVIRONMENT : 'development';
 $query_builder = TRUE;
 
-
 $db['production'] = array(
 	'dsn'	=> '',
 	'hostname' => '127.0.0.1',
 	'username' => 'jule',
-	'password' => file_get_contents(__DIR__."/password"),
+	'password' => file_exists(__DIR__."/password") ? file_get_contents(__DIR__."/password") : '',
 	'database' => 'blog',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',

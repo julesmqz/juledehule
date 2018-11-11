@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width={device-width}, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Admin</title>
+    <link rel="apple-touch-icon" sizes="57x57" href="{assets_url}/favicons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="{assets_url}/favicons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="{assets_url}/favicons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="{assets_url}/favicons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="{assets_url}/favicons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="{assets_url}/favicons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="{assets_url}/favicons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="{assets_url}/favicons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="{assets_url}/favicons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="{assets_url}/favicons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="{assets_url}/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="{assets_url}/favicons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{assets_url}/favicons/favicon-16x16.png">
+    <link rel="manifest" href="{assets_url}/favicons/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="{assets_url}/favicons/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Bootstrap core CSS -->
+    <link href="{assets_url}/css/bootstrap.min.css?{hash}" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl"
+        crossorigin="anonymous"></script>
+
+    <!-- Roboto Font -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+    {custom_css}
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-primary fixed-top {show_nav}">
+        <a class="navbar-brand" href="#">Jule de Hule Admin</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item {active_cats}">
+                    <a class="nav-link" href="/admin/categories">Categories</a>
+                </li>
+                <li class="nav-item {active_posts}">
+                        <a class="nav-link" href="/admin/posts">Posts</a>
+                    </li>
+                <li class="nav-item {active_slider}">
+                        <a class="nav-link" href="/admin/slider">Slider</a>
+                    </li>
+            </ul>
+            <a class="btn btn-success" href="/admin/profile">My profile</a>
+            &nbsp;
+            <a class="btn btn-danger" href="/login">Logout</a>
+        </div>
+    </nav>
+    <main class="container-fluid" style="margin-top:100px;">
+        {content}
+    </main>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="{assets_url}/js/popper.min.js?{hash}"></script>
+    <script src="{assets_url}/js/bootstrap.min.js?{hash}"></script>
+    <script type="text/javascript" src="{assets_url}/js/slick.min.js?{hash}"></script>
+    <script type="text/javascript" src="{assets_url}/js/global.min.js?{hash}" async></script>
+    {custom_scripts}
+</body>
+
+</html>

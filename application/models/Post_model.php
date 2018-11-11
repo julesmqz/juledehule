@@ -8,10 +8,9 @@ class Post_model extends CI_Model
     {
         
 
-        $this->db->select('post.pretty_url as link,post.title,image.path as image');
+        $this->db->select('post.friendly_url as link,post.title,image');
         $this->db->from('slider');
         $this->db->join('post', 'slider.post_id = post.id');
-        $this->db->join('image', 'post.id = image.post_id AND image.main');
         $this->db->limit(5, 0);
         $this->db->order_by('slider.position', 'ASC');
 
@@ -35,11 +34,9 @@ class Post_model extends CI_Model
     {
         
 
-        $this->db->select('post.*,tag.friendly_url,tag.name as main_tag,image.path as main_img');
+        $this->db->select('post.*,post.friendly_url as pretty_url,category.friendly_url as category_url,category.name as category,image as main_img');
         $this->db->from('post');
-        $this->db->join('image', 'post.id = image.post_id AND image.main');
-        $this->db->join('post_has_tag as pht', 'post.id = pht.post_id AND pht.main');
-        $this->db->join('tag', 'pht.tag_id = tag.id');
+        $this->db->join('category','category.id = post.category_id');
         $this->db->limit($this->_itemsPerPage, ($nrPage - 1) * $this->_itemsPerPage);
         $this->db->order_by('post.created_on', 'DESC');
 
@@ -80,9 +77,7 @@ class Post_model extends CI_Model
         
 
         $this->db->from('post');
-        $this->db->join('image', 'post.id = image.post_id AND image.main');
-        $this->db->join('post_has_tag as pht', 'post.id = pht.post_id AND pht.main');
-        $this->db->join('tag', 'pht.tag_id = tag.id');
+        $this->db->join('category','category.id = post.category_id');
 
         if (count($search) > 0) {
             $cont = 0;
@@ -116,9 +111,6 @@ class Post_model extends CI_Model
         
 
         $this->db->from('post');
-        $this->db->join('image', 'post.id = image.post_id AND image.main');
-        $this->db->join('post_has_tag as pht', 'post.id = pht.post_id AND pht.main');
-        $this->db->join('tag', 'pht.tag_id = tag.id');
 
         return $this->db->count_all_results();
     }
@@ -133,14 +125,24 @@ class Post_model extends CI_Model
         return $this->getTotalPages(['tag.friendly_url' => $tag]);
     }
 
+    public function searchByCat($cat, $nrPage)
+    {
+        return $this->getPage($nrPage, ['category.friendly_url' => $cat]);
+    }
+
+    public function getTotalPagesByCat($cat)
+    {
+        return $this->getTotalPages(['category.friendly_url' => $cat]);
+    }
+
     public function searchByString($string, $nrPage)
     {
-        return $this->getPage($nrPage, ['tag.name' => $string, 'post.title' => $string, 'post.summary' => $string], true, true);
+        return $this->getPage($nrPage, ['category.name' => $string, 'post.title' => $string, 'post.summary' => $string], true, true);
     }
 
     public function getTotalPagesByString($string)
     {
-        return $this->getTotalPages(['tag.name' => $string, 'post.title' => $string, 'post.summary' => $string], true, true);
+        return $this->getTotalPages(['category.name' => $string, 'post.title' => $string, 'post.summary' => $string], true, true);
     }
 
     public function changeItemsPerPage($nr)
@@ -152,12 +154,10 @@ class Post_model extends CI_Model
     {
         
 
-        $this->db->select('post.*,tag.friendly_url,tag.name as main_tag,image.path as main_img');
+        $this->db->select('post.*,post.friendly_url as pretty_url,category.friendly_url as category_url,category.name as category,image as main_img');
         $this->db->from('post');
-        $this->db->join('image', 'post.id = image.post_id AND image.main');
-        $this->db->join('post_has_tag as pht', 'post.id = pht.post_id AND pht.main');
-        $this->db->join('tag', 'pht.tag_id = tag.id');
-        $this->db->where('pretty_url', $url);
+        $this->db->join('category','category.id = post.category_id');
+        $this->db->where('post.friendly_url', $url);
         $q = $this->db->get();
 
         $row = $q->first_row('array');
@@ -174,9 +174,8 @@ class Post_model extends CI_Model
     {
         
 
-        $this->db->select('"" as oclass,post.title as otitle,post.pretty_url as opretty_url,image.path as omain_img');
+        $this->db->select('"" as oclass,post.title as otitle,post.friendly_url as opretty_url,image as omain_img');
         $this->db->from('post');
-        $this->db->join('image', 'post.id = image.post_id AND image.main');
         $this->db->where('created_on ' . $direction, $date);
         $this->db->order_by('post.created_on', $direction == '>' ? 'ASC' : 'DESC');
         $this->db->limit(1, 0);

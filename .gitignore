@@ -1,4 +1,5 @@
 .DS_Store
 application/config/instagram.php
 admin/
-assets/
+assets/uploads
+assets/img

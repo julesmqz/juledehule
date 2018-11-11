@@ -5,7 +5,7 @@ class Tag_model extends CI_Model
 
     public function getPopular()
     {
-        
+        return []; 
 
         $this->db->select('tag.*,count(pht.post_id) as total');
         $this->db->join('post_has_tag pht', 'ON tag.id = pht.tag_id');
