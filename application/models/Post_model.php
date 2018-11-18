@@ -6,7 +6,6 @@ class Post_model extends CI_Model
 
     public function getMainSlider()
     {
-        
 
         $this->db->select('post.friendly_url as link,post.title,image');
         $this->db->from('slider');
@@ -32,11 +31,11 @@ class Post_model extends CI_Model
 
     public function getPage($nrPage, $search = [], $useLike = false, $useOr = false)
     {
-        
 
-        $this->db->select('post.*,post.friendly_url as pretty_url,category.friendly_url as category_url,category.name as category,image as main_img');
+        $this->db->select('post.*,post.friendly_url as pretty_url,category.friendly_url as category_url,category.name as category,post.image as main_img');
         $this->db->from('post');
-        $this->db->join('category','category.id = post.category_id');
+        $this->db->join('category', 'category.id = post.category_id');
+        $this->db->join('user', 'user.id = post.user_id');
         $this->db->limit($this->_itemsPerPage, ($nrPage - 1) * $this->_itemsPerPage);
         $this->db->order_by('post.created_on', 'DESC');
 
@@ -74,10 +73,10 @@ class Post_model extends CI_Model
 
     public function getTotalPages($search = [], $useLike = false, $useOr = false)
     {
-        
 
         $this->db->from('post');
-        $this->db->join('category','category.id = post.category_id');
+        $this->db->join('category', 'category.id = post.category_id');
+        $this->db->join('user', 'user.id = post.user_id');
 
         if (count($search) > 0) {
             $cont = 0;
@@ -104,11 +103,11 @@ class Post_model extends CI_Model
 
         }
 
-        return ceil($this->db->count_all_results()/$this->_itemsPerPage);
+        return ceil($this->db->count_all_results() / $this->_itemsPerPage);
     }
 
-    public function getTotal(){
-        
+    public function getTotal()
+    {
 
         $this->db->from('post');
 
@@ -130,19 +129,29 @@ class Post_model extends CI_Model
         return $this->getPage($nrPage, ['category.friendly_url' => $cat]);
     }
 
+    public function searchByAuthor($auth, $nrPage)
+    {
+        return $this->getPage($nrPage, ['user.name' => $auth, 'user.nickname' => $auth], false, true);
+    }
+
     public function getTotalPagesByCat($cat)
     {
         return $this->getTotalPages(['category.friendly_url' => $cat]);
     }
 
+    public function getTotalPagesByAuthor($auth)
+    {
+        return $this->getTotalPages(['user.nickname' => $auth, 'user.name' => $auth], false, true);
+    }
+
     public function searchByString($string, $nrPage)
     {
-        return $this->getPage($nrPage, ['category.name' => $string, 'post.title' => $string, 'post.summary' => $string], true, true);
+        return $this->getPage($nrPage, ['category.name' => $string, 'post.title' => $string, 'post.summary' => $string, 'user.name' => $string], true, true);
     }
 
     public function getTotalPagesByString($string)
     {
-        return $this->getTotalPages(['category.name' => $string, 'post.title' => $string, 'post.summary' => $string], true, true);
+        return $this->getTotalPages(['category.name' => $string, 'post.title' => $string, 'post.summary' => $string, 'user.name' => $string], true, true);
     }
 
     public function changeItemsPerPage($nr)
@@ -150,13 +159,20 @@ class Post_model extends CI_Model
         $this->_itemsPerPage = $nr;
     }
 
+    /**
+     * Gets posts by url
+     *
+     * @param string $url
+     *
+     * @return
+     */
     public function getByUrl($url)
     {
-        
 
-        $this->db->select('post.*,post.friendly_url as pretty_url,category.friendly_url as category_url,category.name as category,image as main_img');
+        $this->db->select('post.*,post.friendly_url as pretty_url,category.friendly_url as category_url,category.name as category,post.image as main_img,user.nickname as author_nickname,user.summary as author_summary,user.name as author_name,user.image as author_image');
         $this->db->from('post');
-        $this->db->join('category','category.id = post.category_id');
+        $this->db->join('category', 'category.id = post.category_id');
+        $this->db->join('user', 'user.id = post.user_id');
         $this->db->where('post.friendly_url', $url);
         $q = $this->db->get();
 
@@ -172,7 +188,6 @@ class Post_model extends CI_Model
 
     public function getPrevNextPost($date, $direction = '>')
     {
-        
 
         $this->db->select('"" as oclass,post.title as otitle,post.friendly_url as opretty_url,image as omain_img');
         $this->db->from('post');
@@ -188,13 +203,13 @@ class Post_model extends CI_Model
             return $row;
         }
 
-        return ['otitle' => null,'opretty_url' => '#N','omain_img' => null,'oclass' => 'd-none'];
+        return ['otitle' => null, 'opretty_url' => '#N', 'omain_img' => null, 'oclass' => 'd-none'];
     }
 
-    public function add($post){
+    public function add($post)
+    {
         $data = $post;
         $data['updated_on'] = date('Y-m-d H:i:s');
-        
 
         $this->db->set($data);
         $this->db->insert('post');

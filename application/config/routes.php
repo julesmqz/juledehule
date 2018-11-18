@@ -65,6 +65,8 @@ $route['busqueda/categoria/(:any)/(:any)'] = 'search/categoria/$1/$2';
 $route['busqueda'] = 'search';
 $route['busqueda/texto/(:any)'] = 'search/value/$1';
 $route['busqueda/texto/(:any)/(:any)'] = 'search/value/$1/$2';
+$route['busqueda/autor/(:any)'] = 'search/autor/$1';
+$route['busqueda/autor/(:any)/(:any)'] = 'search/autor/$1/$2';
 
 // SEO FOR blog to cuentos
 $route['inicio'] = 'blog';

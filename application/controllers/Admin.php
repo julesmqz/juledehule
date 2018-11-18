@@ -30,6 +30,8 @@ class Admin extends JH_Controller
         $crud->unset_read();
         $crud->unset_export();
         $crud->unset_print();
+        $crud->unset_texteditor('summary');
+
 
         try {
             $output = $crud->render();

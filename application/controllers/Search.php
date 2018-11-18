@@ -113,4 +113,36 @@ class Search extends JH_Controller
 
         $this->_loadView(false, true);
     }
+
+    /**
+     * Search using author
+     */
+    public function autor($auth, $page = 1){
+        $this->_preparePaginationData($page, '/busqueda/autor/' . $auth, $this->mpost->getTotalPagesByAuthor($auth), true);
+
+        $posts = $this->mpost->searchByAuthor($auth, $page);
+        foreach ($posts as &$post) {
+            $co = $post['created_on'];
+            $uo = $post['updated_on'];
+            $post['created_on'] = date('d/M/Y', strtotime($co));
+            $post['created_on_utc'] = date('d-m-Y H:i:s', strtotime($co));
+            $post['updated_on'] = date('d/M/Y', strtotime($uo));
+            $post['updated_on_utc'] = date('d-m-Y H:i:s', strtotime($uo));
+        }
+
+        $this->_contentData = array(
+            'posts' => $posts,
+            'search_value' => 'autor:' . $auth,
+        );
+
+        $this->_shareMetadata[] = array(
+            'url' => 'http://www.juledehule.com.mx/busqueda/autor/' . $auth,
+            'type' => 'search',
+            'description' => 'Resultados de la búsqueda por autor ' . $auth,
+            'image' => 'http://assets.juledehule.com.mx/img/logo_vertical.png',
+            'title' => 'Resultados de la búsqueda por autor ' . $auth,
+        );
+
+        $this->_loadView(false, true);
+    }
 }

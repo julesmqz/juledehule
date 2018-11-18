@@ -23,8 +23,8 @@
             <a href="#comments">{num_comments} Comentarios</a>
         </span>
         <span class="entry-share dropdown show">
-            <a href="#N" class="entry-share-text btn dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                aria-expanded="false">
+            <a href="#N" class="entry-share-text btn dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
                 Compartir </a>
 
             <div class="entry-share-wrap dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -106,6 +106,22 @@
             </div>
             {/nextPost}
         </nav>
+        <aside class="about-author col-12">
+            <h3 class="widget-title">
+                <span>
+                    Escrito por </span>
+            </h3>
+
+            <div class="author-bio">
+                <div class="author-img">
+                    <a href="/busqueda/autor/{author_nickname}" style="background-image: url({author_image})"></a>
+                </div>
+                <div class="author-info">
+                    <h4 class="author-name">{author_name}</h4>
+                    <p class="author-summary">{author_summary}</p>
+                </div>
+            </div>
+        </aside>
     </div>
 
     <div class="row d-none">

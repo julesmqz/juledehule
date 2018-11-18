@@ -21,7 +21,7 @@ class JH_Controller extends CI_Controller
         $this->load->model('category_model', 'mcat');
         $this->load->model('post_model', 'mpost');
         $this->load->model('social_model', 'msocial');
-        $this->_versionScripts = md5(date('Ymd') . '2');
+        $this->_versionScripts = ENVIRONMENT === 'production' ? md5(date('Ymd') . '5') : md5(date('YmdHis'));
         if ($this->_passwordProtected) {
             $this->_verifySession();
         }
