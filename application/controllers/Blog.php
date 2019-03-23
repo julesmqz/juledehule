@@ -77,7 +77,7 @@ class Blog extends JH_Controller
                 'image' => $post['main_img'],
                 'title' => $post['title'],
             );
-            $this->_siteTitle = 'Entrada | '.$post['title'];
+            $this->_siteTitle = $post['title'];
             $this->_loadView(true, true);
         }
 
