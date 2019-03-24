@@ -20,7 +20,8 @@ class Social_model extends CI_Model
     {
         foreach ($pics as &$pic) {
             if (ENVIRONMENT === "production") {
-                $source = $this->downloadPic($pic["image"],true);
+                $source = $this->downloadPic($pic["image"], true);
+                $pic["image"] = $this->uploadImgToStorage($source);
             } else {
                 $pic["image"] = $this->downloadPic($pic["image"]);
             }
@@ -28,7 +29,7 @@ class Social_model extends CI_Model
         }
     }
 
-    public function downloadPic($url,$returnPath=false)
+    public function downloadPic($url, $returnPath = false)
     {
         $dir = APPPATH . "/../assets/img/social/";
         if (!is_dir($dir)) {
@@ -44,7 +45,7 @@ class Social_model extends CI_Model
 
     public function uploadImgToStorage($source)
     {
-        $bucketName = str_replace("/",'',JH_ASSETS_URL)."/img/social";
+        $bucketName = str_replace("/", '', JH_ASSETS_URL) . "/img/social";
         $storage = new StorageClient();
         $file = fopen($source, 'r');
         $bucket = $storage->bucket($bucketName);
@@ -52,7 +53,7 @@ class Social_model extends CI_Model
             'name' => basename($source),
         ]);
 
-        return JH_ASSETS_URL."/img/social/".basename($source);
+        return JH_ASSETS_URL . "/img/social/" . basename($source);
         //printf('Uploaded %s to gs://%s/%s' . PHP_EOL, basename($source), $bucketName, $objectName);
     }
 }
